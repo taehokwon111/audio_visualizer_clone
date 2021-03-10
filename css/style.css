@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+html,body{
+    overflow: hidden;
+}
+.test{
+    position: relative;
+    z-index: 11;
+    background-color: black;
+}
+#renderer{
+    position: relative;
+
+}
+.fdzz{
+    display: flex;
+    justify-content: space-between;
+}
