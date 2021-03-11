@@ -13,7 +13,7 @@ function initPage(){
     analyser = context.createAnalyser();
     
 
-    audio.src = "/audio/nomu.mp3"; // 음악 파일 경로
+    audio.src = "/audio/test.mp3"; // 음악 파일 경로
     source = context.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(context.destination);
@@ -24,6 +24,7 @@ function initPage(){
     audio.play();
     audio.volume = 0.2;
     animationLooper();
+    alert("흐에!!!")
 }
  
 function animationLooper(){
