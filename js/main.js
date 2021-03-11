@@ -3,28 +3,27 @@ let canvas, ctx, center_x, center_y, radius, bars,
     x_end, y_end, bar_height, bar_width,
     frequency_array;
  
-bars = 100;
-bar_width = 20;
+bars = 500;
+bar_width = 2;
  
 function initPage(){
     
-    audio = new Audio();
+    audio = new Audio("/audio/Sakuzyo - Lost Memory.mp3");
     context = new (window.AudioContext || window.webkitAudioContext)();
     analyser = context.createAnalyser();
     
 
-    audio.src = "/audio/test.mp3"; // 음악 파일 경로
+    // audio.src =  ; // 음악  파일 경로
     source = context.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(context.destination);
- 
+  
     
     frequency_array = new Uint8Array(analyser.frequencyBinCount);
     
     audio.play();
-    audio.volume = 0.2;
+    audio.volume = 0.4;
     animationLooper();
-    alert("흐에!!!")
 }
  
 function animationLooper(){
@@ -32,18 +31,18 @@ function animationLooper(){
     //장치 크기로 설정
     canvas = document.getElementById("renderer");
     canvas.width = window.innerWidth ;
-    canvas.height = window.innerHeight ;
+    canvas.height = window.innerHeight  ;
     ctx = canvas.getContext("2d");
     
     // 창의 중심을 찾아서 크기조절
     center_x = canvas.width / 2;
     center_y = canvas.height / 2;
-    radius = 150;
+    radius = 200;
     
     // 배경스타일 지정
     var gradient = ctx.createLinearGradient(0,0,0,canvas.height);
-    gradient.addColorStop(0,"skyblue");
-    gradient.addColorStop(1,"#002A47");
+    // gradient.addColorStop(0,"#000000");
+    // gradient.addColorStop(1,"#002A47");
     ctx.fillStyle = gradient;
     ctx.fillRect(0,0,canvas.width,canvas.height);
     
