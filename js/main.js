@@ -54,7 +54,7 @@ function animationLooper(){
     analyser.getByteFrequencyData(frequency_array);
     for(var i = 0; i < bars; i++){
         
-        //원을 같은 부분으로 나눔
+        //원을 같은 부분으로 나눔 
         rads = Math.PI * 2 / bars;
         
         bar_height = frequency_array[i]*0.7;
@@ -71,7 +71,7 @@ function animationLooper(){
     }
     window.requestAnimationFrame(animationLooper);
 }
- 
+  
 // 막대그리기
 function drawBar(x1, y1, x2, y2, width, frequency){
     
