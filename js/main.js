@@ -5,10 +5,9 @@ let canvas, ctx, center_x, center_y, radius, bars,
  
 bars = 500;
 bar_width = 2;
- 
+
 function initPage(){
-    
-    audio = new Audio("/audio/Sakuzyo - Lost Memory.mp3");
+    audio = new Audio("/audio/힐링 뉴에이지 음악 - 너의 소식 (Beautiful Piano Music - Your News)  Tido Kang.mp3");
     context = new (window.AudioContext || window.webkitAudioContext)();
     analyser = context.createAnalyser();
      
@@ -22,9 +21,9 @@ function initPage(){
     frequency_array = new Uint8Array(analyser.frequencyBinCount);
     
     audio.play();
-    audio.volume = 0.4;
+    audio.volume = 0.1;
     animationLooper();
-}
+}   
  
 function animationLooper(){
     
@@ -47,7 +46,7 @@ function animationLooper(){
     ctx.fillRect(0,0,canvas.width,canvas.height);
     
     //원 그리기
-    ctx.beginPath();
+    ctx.beginPath();  
     ctx.arc(center_x,center_y,radius,0,2*Math.PI);
     ctx.stroke();
     
@@ -83,4 +82,9 @@ function drawBar(x1, y1, x2, y2, width, frequency){
     ctx.moveTo(x1,y1);
     ctx.lineTo(x2,y2);
     ctx.stroke();
+}
+
+function file_select(asd){
+
+    alert(asd)
 }
