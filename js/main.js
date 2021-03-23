@@ -1,4 +1,8 @@
 
+
+
+
+
 let canvas, ctx, center_x, center_y, radius, bars, 
     x_end, y_end, bar_height, bar_width,
     frequency_array;
@@ -7,7 +11,7 @@ bars = 500;
 bar_width = 2;
 
 function initPage(){
-    audio = new Audio("/audio/힐링 뉴에이지 음악 - 너의 소식 (Beautiful Piano Music - Your News)  Tido Kang.mp3");
+    audio = new Audio("/audio/힐링 뉴에이지 음악  - 너의 소식 (Beautiful Piano Music - Your News)  Tido Kang.mp3");
     context = new (window.AudioContext || window.webkitAudioContext)();
     analyser = context.createAnalyser();
      
@@ -88,3 +92,14 @@ function file_select(asd){
 
     alert(asd)
 }
+
+
+function handleFiles(event) {
+    var files = event.target.files;
+    $("#src").attr("src", URL.createObjectURL(files[0]));
+    document.getElementById("audio").load();
+    alert(files)
+}
+
+document.getElementById("upload").addEventListener("change", handleFiles, false);
+

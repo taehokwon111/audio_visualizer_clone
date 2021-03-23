@@ -7,13 +7,19 @@
     <title>Document</title>
     <script type="text/javascript" src="/js/main.js"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body onload="initPage()">
-    <input type="file" name="test" id="file" onchange="file_select(this.value)">
+    <input type="file" id="upload" />
+    <audio id="audio" controls>
+      <source src="" id="src" />
+    </audio>
 <div class="fdzz"> 
     <canvas id="renderer"> </canvas>
 </div>
+
+<!-- https://stackoverflow.com/questions/43710173/upload-and-play-audio-file-js -->
 <!-- https://stackoverflow.com/questions/4950567/reading-client-side-text-file-using-javascript -->
 </body>
 </html>
