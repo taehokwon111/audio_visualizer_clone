@@ -1,8 +1,3 @@
-
-
-
-
-
 let canvas, ctx, center_x, center_y, radius, bars, 
 x_end, y_end, bar_height, bar_width, audio_f, audio, now_load, files,
 frequency_array;
@@ -12,39 +7,41 @@ bar_width = 2;
 
 
 function handleFiles(event) {
- 
+    audio = null;
+    audio_f = null;
     files = event.target.files;
     audio_f = URL.createObjectURL(files[0])
-    now_load = audio_f;
     initPage();
-    }
+}
     
-    
+function test() {
+    audio.pause();
+}
     
 
 function initPage(){
 // audio = null;
 
-// if(audio.play()){
-//     audio.pause();
-// }
+    // if(audio.play()){
+    //     audio.pause();
+    // }
 
-audio = new Audio(audio_f);
-context = new (window.AudioContext || window.webkitAudioContext)();
-analyser = context.createAnalyser();
- 
-
-// audio.src =  ; // 음악 파일 경로
-source = context.createMediaElementSource(audio);
-source.connect(analyser);
-analyser.connect(context.destination);
+    audio = new Audio(audio_f);
+    context = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = context.createAnalyser();
 
 
-frequency_array = new Uint8Array(analyser.frequencyBinCount);
+    // audio.src =  ; // 음악 파일 경로
+    source = context.createMediaElementSource(audio);
+    source.connect(analyser);
+    analyser.connect(context.destination);
 
-audio.play();
-audio.volume = 0.5;
-animationLooper();
+
+    frequency_array = new Uint8Array(analyser.frequencyBinCount);
+
+    audio.play();
+    audio.volume = 0.2;
+    animationLooper();
 }   
 
 function animationLooper(){
@@ -61,7 +58,7 @@ center_y = canvas.height / 2;
 radius = 200;
 
 // 배경스타일 지정
-var gradient = ctx.createLinearGradient(0,0,0,canvas.height);
+let gradient = ctx.createLinearGradient(0,0,0,canvas.height);
 // gradient.addColorStop(0,"#000000");
 // gradient.addColorStop(1,"#002A47");
 ctx.fillStyle = gradient;
@@ -73,7 +70,7 @@ ctx.arc(center_x,center_y,radius,0,2*Math.PI);
 ctx.stroke();
 
 analyser.getByteFrequencyData(frequency_array);
-for(var i = 0; i < bars; i++){
+for(let i = 0; i < bars; i++){
     
     //원을 같은 부분으로 나눔 
     rads = Math.PI * 2 / bars;
@@ -96,7 +93,7 @@ window.requestAnimationFrame(animationLooper);
 // 막대그리기
 function drawBar(x1, y1, x2, y2, width, frequency){
 
-var lineColor = "rgb(" + frequency + ", " + frequency + ", " + frequency + ")";
+let lineColor = "rgb(" + frequency + ", " + frequency + ", " + 153 + ")";
 
 ctx.strokeStyle = lineColor;
 ctx.lineWidth = width;
