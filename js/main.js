@@ -15,7 +15,7 @@ function handleFiles(event) {
 }
     
 function test() {
-    audio.pause();
+    audio.load();
 }
     
 
