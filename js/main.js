@@ -78,7 +78,7 @@ for(var i = 0; i < bars; i++){
     //원을 같은 부분으로 나눔 
     rads = Math.PI * 2 / bars;
     
-    bar_height = frequency_array[i]*2;
+    bar_height = frequency_array[i]*0.7;
     
     // set coordinates
     x = center_x + Math.cos(rads * i) * (radius);
@@ -96,7 +96,7 @@ window.requestAnimationFrame(animationLooper);
 // 막대그리기
 function drawBar(x1, y1, x2, y2, width, frequency){
 
-var lineColor = "rgb(" + 255 + ", " + 255 + ", " + 255 + ")";
+var lineColor = "rgb(" + frequency + ", " + frequency + ", " + frequency + ")";
 
 ctx.strokeStyle = lineColor;
 ctx.lineWidth = width;
