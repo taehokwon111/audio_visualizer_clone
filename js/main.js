@@ -4,7 +4,7 @@
 
 
 let canvas, ctx, center_x, center_y, radius, bars, 
-x_end, y_end, bar_height, bar_width, audio_f, audio, now_load,
+x_end, y_end, bar_height, bar_width, audio_f, audio, now_load, files,
 frequency_array;
 
 bars = 500;
@@ -12,11 +12,10 @@ bar_width = 2;
 
 
 function handleFiles(event) {
-
-    var files = event.target.files;
+ 
+    files = event.target.files;
     audio_f = URL.createObjectURL(files[0])
     now_load = audio_f;
-
     initPage();
     }
     
@@ -24,6 +23,11 @@ function handleFiles(event) {
     
 
 function initPage(){
+// audio = null;
+
+// if(audio.play()){
+//     audio.pause();
+// }
 
 audio = new Audio(audio_f);
 context = new (window.AudioContext || window.webkitAudioContext)();
@@ -74,11 +78,11 @@ for(var i = 0; i < bars; i++){
     //원을 같은 부분으로 나눔 
     rads = Math.PI * 2 / bars;
     
-    bar_height = frequency_array[i]*1;
+    bar_height = frequency_array[i]*2;
     
     // set coordinates
-    x = center_x + Math.cos(rads * i) * (radius + 100);
-    y = center_y + Math.sin(rads * i) * (radius + 100);
+    x = center_x + Math.cos(rads * i) * (radius);
+    y = center_y + Math.sin(rads * i) * (radius);
     x_end = center_x + Math.cos(rads * i)*(radius + bar_height);
     y_end = center_y + Math.sin(rads * i)*(radius + bar_height);
     
