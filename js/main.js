@@ -40,7 +40,7 @@ function initPage(){
     frequency_array = new Uint8Array(analyser.frequencyBinCount);
 
     audio.play();
-    audio.volume = 0.2;
+    audio.volume = 0.5;
     animationLooper();
 }   
 
@@ -49,13 +49,13 @@ function animationLooper(){
 //장치 크기로 설정
 canvas = document.getElementById("renderer");
 canvas.width = window.innerWidth ;
-canvas.height = window.innerHeight  ;
+canvas.height = window.innerHeight / 1.2;
 ctx = canvas.getContext("2d");
 
 // 창의 중심을 찾아서 크기조절
 center_x = canvas.width / 2;
 center_y = canvas.height / 2;
-radius = 200;
+radius = 300;
 
 // 배경스타일 지정
 let gradient = ctx.createLinearGradient(0,0,0,canvas.height);
